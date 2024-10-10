@@ -5,14 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artigos Esportivos</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilo básico para esconder o conteúdo */
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <!-- Tela de Cadastro -->
-    <div class="container">
+    <div class="container" id="register-container">
         <div class="form-container">
             <h1>Cadastre sua conta</h1>
             <img src="imagens/Logo.png" alt="Logo" class="logo">
-            <form action="#">
+            <form id="register-form">
                 <div class="input-group">
                     <input type="email" placeholder="E-mail ou nome de usuário" required>
                 </div>
@@ -30,18 +36,18 @@
                 </div>
                 <button type="submit" class="btn">Cadastrar</button>
             </form>
-            <p class="login-link">Já tem uma conta? <a href="#">Faça login</a></p>
+            <p class="login-link">Já tem uma conta? <a href="#" id="show-login">Faça login</a></p>
         </div>
     </div>
 
     <!-- Tela de Login -->
-    <div class="login-container">
+    <div class="login-container hidden" id="login-container">
         <div class="login-box">
             <h1>Entrar com sua conta</h1>
             <div class="logo">
                 <img src="imagens/Logo.png" alt="Logo">
             </div>
-            <form>
+            <form id="login-form">
                 <div class="input-group">
                     <input type="text" placeholder="E-mail ou nome de usuário" required>
                 </div>
@@ -54,9 +60,35 @@
                 <button type="submit" class="login-btn">Entrar</button>
             </form>
             <div class="register-link">
-                <p>Não tem uma conta? <a href="#">Cadastre-se</a></p>
+                <p>Não tem uma conta? <a href="#" id="show-register">Cadastre-se</a></p>
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Seleciona os containers de login e registro
+            const registerContainer = document.getElementById('register-container');
+            const loginContainer = document.getElementById('login-container');
+            
+            // Seleciona os links para troca de tela
+            const showLoginLink = document.getElementById('show-login');
+            const showRegisterLink = document.getElementById('show-register');
+            
+            // Alterna para a tela de login
+            showLoginLink.addEventListener('click', function (e) {
+                e.preventDefault();
+                registerContainer.classList.add('hidden');  // Esconde o registro
+                loginContainer.classList.remove('hidden');  // Mostra o login
+            });
+            
+            // Alterna para a tela de cadastro
+            showRegisterLink.addEventListener('click', function (e) {
+                e.preventDefault();
+                loginContainer.classList.add('hidden');    // Esconde o login
+                registerContainer.classList.remove('hidden'); // Mostra o registro
+            });
+        });
+    </script>
 </body>
 </html>
