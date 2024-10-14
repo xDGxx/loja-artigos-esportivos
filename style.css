@@ -7,7 +7,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #d3d1d1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,8 +45,8 @@ h1 {
     justify-content: center;
 }
 
-.logo img {
-    width: 100%;
+.logo {
+    width: 90px;
     height: auto;
     justify-content: center;
 }
@@ -113,4 +113,23 @@ input:focus {
 
 .login-link a:hover, .register-link a:hover {
     text-decoration: underline;
+}
+
+.logo-login img{
+    width: 90px;
+    height: auto;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.btn:hover{
+    color: red;
+    background-color: black;
+    transition: 1s;
+}
+
+.login-btn:hover{
+    color: red;
+    background-color: black;
+    transition: 1s;
 }
